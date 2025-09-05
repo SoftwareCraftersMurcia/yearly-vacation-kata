@@ -3,6 +3,7 @@
 namespace KataTests;
 
 use Kata\Employee;
+use Kata\EmployeeVacation;
 use Kata\VacationReport;
 use PHPUnit\Framework\TestCase;
 
@@ -46,10 +47,7 @@ class VacationReportTest extends TestCase
         );
 
         $expected = [
-            [
-                'name' => 'Marco Gil',
-                'total' => 24,
-            ]
+            new EmployeeVacation('Marco Gil', 24)
         ];
 
         self::assertEquals($expected, $result);

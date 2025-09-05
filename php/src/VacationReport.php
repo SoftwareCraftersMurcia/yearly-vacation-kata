@@ -7,10 +7,7 @@ final class VacationReport
     public function createTotalDays(Employee ...$employees): array
     {
         return [
-            [
-                'name' => 'Marco Gil',
-                'total' => 24,
-            ]
+            new EmployeeVacation('Marco Gil', 24)
         ];
     }
 }
