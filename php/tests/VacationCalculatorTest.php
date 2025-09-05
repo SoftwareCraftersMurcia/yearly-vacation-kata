@@ -40,4 +40,20 @@ final class VacationCalculatorTest extends TestCase
 
         self::assertEquals(26, $actual);
     }
+
+    public function test_calculate_total_days_case_3(): void
+    {
+        $calculator = new VacationCalculator();
+
+        $actual = $calculator->calculateTotalDays(
+            new Employee(
+                'Juan Perez',
+                '30.12.1997',
+                '01.01.2025',
+                null,
+            ),
+        );
+
+        self::assertEquals(12, $actual);
+    }
 }
