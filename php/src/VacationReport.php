@@ -4,7 +4,7 @@ namespace Kata;
 
 final class VacationReport
 {
-    public function createTotalDays(): array
+    public function createTotalDays(Employee ...$employees): array
     {
         return [
             [
