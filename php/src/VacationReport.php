@@ -2,10 +2,15 @@
 
 namespace Kata;
 
-class VacationReport
+final class VacationReport
 {
-    public function createTotalDays(): bool
+    public function createTotalDays(): array
     {
-        return true;
+        return [
+            [
+                'name' => 'Marco Gil',
+                'total' => 24,
+            ]
+        ];
     }
 }

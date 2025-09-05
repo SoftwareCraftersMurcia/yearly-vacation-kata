@@ -50,6 +50,7 @@ class VacationReportTest extends TestCase
                 'total' => 24,
             ]
         ];
+
         self::assertEquals($expected, $result);
     }
 }
