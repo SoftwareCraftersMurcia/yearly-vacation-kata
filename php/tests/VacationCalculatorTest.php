@@ -10,13 +10,18 @@ use PHPUnit\Framework\TestCase;
 
 final class VacationCalculatorTest extends TestCase
 {
-    public function test_calculate_total_days_case_1(): void
+    private VacationCalculator $calculator;
+
+    protected function setUp(): void
     {
-        $calculator = new VacationCalculator(
+        $this->calculator = new VacationCalculator(
             DateTimeImmutable::createFromFormat('Y-m-d','2025-06-01')
         );
+    }
 
-        $actual = $calculator->calculateTotalDays(
+    public function test_calculate_total_days_case_1(): void
+    {
+        $actual = $this->calculator->calculateTotalDays(
             new Employee(
                 'Marco Sanchez',
                 '12.07.1999',
@@ -30,11 +35,7 @@ final class VacationCalculatorTest extends TestCase
 
     public function test_calculate_total_days_case_2(): void
     {
-        $calculator = new VacationCalculator(
-            DateTimeImmutable::createFromFormat('Y-m-d','2025-06-01')
-        );
-
-        $actual = $calculator->calculateTotalDays(
+        $actual = $this->calculator->calculateTotalDays(
             new Employee(
                 'Marco Sanchez',
                 '12.07.1999',
@@ -48,11 +49,7 @@ final class VacationCalculatorTest extends TestCase
 
     public function test_calculate_total_days_case_3(): void
     {
-        $calculator = new VacationCalculator(
-            DateTimeImmutable::createFromFormat('Y-m-d','2025-06-01')
-        );
-
-        $actual = $calculator->calculateTotalDays(
+        $actual = $this->calculator->calculateTotalDays(
             new Employee(
                 'Juan Perez',
                 '30.12.1997',
