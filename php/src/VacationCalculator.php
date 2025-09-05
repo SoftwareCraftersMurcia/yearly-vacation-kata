@@ -20,7 +20,7 @@ final readonly class VacationCalculator implements VacationCalculatorInterface
         }
 
         if((int)$this->today->format('Y') === $employee->getStartYear()){
-            $totalDays = ((int)$this->today->format('m')) * ($totalDays/12);
+            $totalDays = ($this->today->format('n')) * ($totalDays/12);
         }
 
         return $totalDays;
