@@ -4,6 +4,7 @@ namespace KataTests;
 
 use Kata\Employee;
 use Kata\EmployeeVacation;
+use Kata\VacationCalculatorInterface;
 use Kata\VacationReport;
 use PHPUnit\Framework\TestCase;
 
@@ -11,7 +12,11 @@ class VacationReportTest extends TestCase
 {
     public function test_vacation_report(): void
     {
-        $report = new VacationReport();
+        $calculator = $this->createStub(VacationCalculatorInterface::class);
+        $calculator->method('calculateTotalDays')
+            ->willReturnOnConsecutiveCalls(24, 26, 12, 30, 32);
+
+        $report = new VacationReport($calculator);
 
         $result = $report->createTotalDays(
             new Employee(
@@ -52,6 +57,26 @@ class VacationReportTest extends TestCase
             new EmployeeVacation('Juan Perez', 12),
             new EmployeeVacation('Laura Martinez', 30),
             new EmployeeVacation('Ana Gonzalez', 32),
+        ];
+
+        self::assertEquals($expected, $result);
+    }
+
+    public function test_vacation_report_default_day(): void
+    {
+        $report = new VacationReport();
+
+        $result = $report->createTotalDays(
+            new Employee(
+                'Marco Gil',
+                '26.01.2001',
+                '01.01.2024',
+                null,
+            ),
+        );
+
+        $expected = [
+            new EmployeeVacation('Marco Gil', 24),
         ];
 
         self::assertEquals($expected, $result);

@@ -4,14 +4,18 @@ namespace Kata;
 
 final class VacationReport
 {
+    public function __construct(
+        private VacationCalculatorInterface $calculator
+    ) {
+    }
+
     public function createTotalDays(Employee ...$employees): array
     {
-        return [
-            new EmployeeVacation('Marco Gil', 24),
-            new EmployeeVacation('Marco Sanchez', 26),
-            new EmployeeVacation('Juan Perez', 12),
-            new EmployeeVacation('Laura Martinez', 30),
-            new EmployeeVacation('Ana Gonzalez', 32),
-        ];
+        $result = [];
+        foreach ($employees as $employee) {
+            $days = $this->calculator->calculateTotalDays($employee);
+            $result[] = new EmployeeVacation($employee->name, $days);
+        }
+        return $result;
     }
 }
