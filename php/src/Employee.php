@@ -12,4 +12,9 @@ final readonly class Employee
         public ?int $specialContractDays = null,
     ) {
     }
+
+    public function getStartYear(): int
+    {
+        return (int) \date('Y', \strtotime($this->startDate));
+    }
 }

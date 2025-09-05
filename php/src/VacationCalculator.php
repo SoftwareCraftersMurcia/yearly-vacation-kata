@@ -7,12 +7,22 @@ final readonly class VacationCalculator implements VacationCalculatorInterface
 {
     private const DEFAULT_VACATION_DAYS = 24;
 
+    public function __construct(
+        private \DateTimeImmutable $today
+    ) {
+    }
+
     public function calculateTotalDays(Employee $employee): int
     {
+        $totalDays = self::DEFAULT_VACATION_DAYS;
         if ($employee->specialContractDays !== null) {
-            return $employee->specialContractDays;
+            $totalDays = $employee->specialContractDays;
         }
 
-        return self::DEFAULT_VACATION_DAYS;
+        if((int)$this->today->format('Y') === $employee->getStartYear()){
+            $totalDays = ((int)$this->today->format('m')) * ($totalDays/12);
+        }
+
+        return $totalDays;
     }
 }

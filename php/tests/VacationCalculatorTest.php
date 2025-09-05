@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace KataTests;
 
+use DateTimeImmutable;
 use Kata\Employee;
 use Kata\VacationCalculator;
 use PHPUnit\Framework\TestCase;
@@ -11,7 +12,9 @@ final class VacationCalculatorTest extends TestCase
 {
     public function test_calculate_total_days_case_1(): void
     {
-        $calculator = new VacationCalculator();
+        $calculator = new VacationCalculator(
+            DateTimeImmutable::createFromFormat('Y-m-d','2025-06-01')
+        );
 
         $actual = $calculator->calculateTotalDays(
             new Employee(
@@ -27,7 +30,9 @@ final class VacationCalculatorTest extends TestCase
 
     public function test_calculate_total_days_case_2(): void
     {
-        $calculator = new VacationCalculator();
+        $calculator = new VacationCalculator(
+            DateTimeImmutable::createFromFormat('Y-m-d','2025-06-01')
+        );
 
         $actual = $calculator->calculateTotalDays(
             new Employee(
@@ -43,7 +48,9 @@ final class VacationCalculatorTest extends TestCase
 
     public function test_calculate_total_days_case_3(): void
     {
-        $calculator = new VacationCalculator();
+        $calculator = new VacationCalculator(
+            DateTimeImmutable::createFromFormat('Y-m-d','2025-06-01')
+        );
 
         $actual = $calculator->calculateTotalDays(
             new Employee(
