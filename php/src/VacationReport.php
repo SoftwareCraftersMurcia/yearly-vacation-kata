@@ -9,6 +9,9 @@ final class VacationReport
     ) {
     }
 
+    /**
+     * @return list<EmployeeVacation>
+     */
     public function createTotalDays(Employee ...$employees): array
     {
         $result = [];

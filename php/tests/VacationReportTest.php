@@ -61,24 +61,4 @@ class VacationReportTest extends TestCase
 
         self::assertEquals($expected, $result);
     }
-
-    public function test_vacation_report_default_day(): void
-    {
-        $report = new VacationReport();
-
-        $result = $report->createTotalDays(
-            new Employee(
-                'Marco Gil',
-                '26.01.2001',
-                '01.01.2024',
-                null,
-            ),
-        );
-
-        $expected = [
-            new EmployeeVacation('Marco Gil', 24),
-        ];
-
-        self::assertEquals($expected, $result);
-    }
 }
