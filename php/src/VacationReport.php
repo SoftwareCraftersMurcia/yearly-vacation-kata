@@ -2,9 +2,9 @@
 
 namespace Kata;
 
-class TheClass
+class VacationReport
 {
-    public function theMethod(): bool
+    public function createTotalDays(): bool
     {
         return true;
     }
