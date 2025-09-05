@@ -14,7 +14,7 @@ La aplicación recibe una fecha (eg: `01-06-2025`) y muestra el nombre de cada e
 
 ### Lista de empleados:
 
-| Nombre         | Fecha de nacimiento | Inicio de contrato | ¿Es Contrato especial?  | Razón      |
+| Nombre         | Fecha de nacimiento | Inicio de contrato | Contrato especial       | Razón      |
 |----------------|---------------------|--------------------|-------------------------|------------|
 | Marco Gil      | 26.01.2001          | 01.01.2024         | No                      | Caso 1     |
 | Marco Sanchez  | 12.07.1999          | 01.01.2024         | Si (26 días vacaciones) | Caso 2     |
